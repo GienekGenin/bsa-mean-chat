@@ -7,6 +7,7 @@ import {SocketService} from '../services/socket/socket.service';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  messages: string[] = [];
 
   constructor(private _socketService: SocketService) {
   }
@@ -24,5 +25,21 @@ export class ChatComponent implements OnInit {
         console.log(_data.msg);
       });
     });
+
+    this._socketService.on('new_connection', (_data: any) => {
+      this.messages = _data.messages;
+    });
+  }
+
+  sendMsg(msgInput, event) {
+    if (msgInput.value !== '' && event.key === 'Enter') {
+      console.log('message', msgInput.value);
+      this._socketService.emit('new_message', {
+        msg: msgInput.value
+      });
+      this.messages.push(msgInput.value);
+      console.log('messages', this.messages);
+      msgInput.value = '';
+    }
   }
 }

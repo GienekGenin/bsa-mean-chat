@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const mongojs = require('mongojs');
-// const db = mongojs('mongodb://Gennadii:1q2w120195@ds239097.mlab.com:39097/sensors', ['solarInput', 'sensors']);
+const mongojs = require('mongojs');
+const db = mongojs('mongodb://Gennadii:1q2w120195@ds135061.mlab.com:35061/bsa-js', ['messages']);
 
 
 const app = express();
@@ -27,6 +27,8 @@ let server = app.listen(process.env.PORT || 8080, function () {
   console.log("App now running on port", port);
 });
 
+messages = [];
+
 const io = require('socket.io')(server);
 //Socket connection
 io.on('connection', (socket) => {
@@ -47,5 +49,13 @@ io.on('connection', (socket) => {
     socket.emit('Server_response', {
       msg: 'Loud and clear'
     })
+  });
+
+  socket.emit('new_connection', {
+    messages
+  });
+
+  socket.on('new_message', (data) => {
+    messages.push(data.msg);
   });
 });
