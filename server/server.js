@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const mongojs = require('mongojs');
-const db = mongojs('mongodb://Gennadii:1q2w120195@ds135061.mlab.com:35061/bsa-js', ['messages']);
-
+// const mongojs = require('mongojs');
+// const db = mongojs('mongodb://Gennadii:1q2w120195@ds135061.mlab.com:35061/bsa-js', ['messages']);
+const handler = require('./scripts/bot');
 
 const app = express();
 
@@ -59,6 +59,9 @@ io.on('connection', (socket) => {
     messages.push(data.msg);
     io.emit('new_message', {
       msg: data.msg
+    });
+    io.emit('new_message', {
+      msg: new handler().check(data.msg)
     });
   });
 });
