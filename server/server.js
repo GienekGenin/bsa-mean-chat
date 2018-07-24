@@ -57,5 +57,8 @@ io.on('connection', (socket) => {
 
   socket.on('new_message', (data) => {
     messages.push(data.msg);
+    io.emit('new_message', {
+      msg: data.msg
+    });
   });
 });

@@ -29,16 +29,16 @@ export class ChatComponent implements OnInit {
     this._socketService.on('new_connection', (_data: any) => {
       this.messages = _data.messages;
     });
+    this._socketService.on('new_message', (_data: any) => {
+      this.messages.push(_data.msg);
+    });
   }
 
   sendMsg(msgInput, event) {
     if (msgInput.value !== '' && event.key === 'Enter') {
-      console.log('message', msgInput.value);
       this._socketService.emit('new_message', {
         msg: msgInput.value
       });
-      this.messages.push(msgInput.value);
-      console.log('messages', this.messages);
       msgInput.value = '';
     }
   }
