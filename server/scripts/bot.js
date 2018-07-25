@@ -2,6 +2,8 @@ const weatherReqHandler = require('./weatherBot');
 const currencyReqHandler = require('./currencyBot');
 const noteReqHandler = require('./noteBot');
 const quoteReqHandler = require('./quoteBot');
+const questionReqHandler = require('./questionBot');
+const randomReqHandler = require('./randomBot');
 
 class DetectBot {
   constructor() {
@@ -21,6 +23,7 @@ class DetectTypeOfRequest {
       [/@bot Save/, 'note'],
       [/@bot Show/, 'note'],
       [/@bot show quote/, 'quote'],
+      [/^@bot +.+\? *[!@#$%^&*?()_+]+$/, 'question'],
       [/@bot /, 'random'],
     ];
   }
@@ -41,7 +44,7 @@ class BotResponse {
 
   answerOn(msg) {
     if (this.typeOfReq === 'random') {
-      // return randomReqHandler(msg);
+      return randomReqHandler();
     } else if (this.typeOfReq === 'weather') {
       return weatherReqHandler(msg);
     } else if (this.typeOfReq === 'currency') {
@@ -50,6 +53,8 @@ class BotResponse {
       return noteReqHandler(msg);
     } else if (this.typeOfReq === 'quote') {
       return quoteReqHandler();
+    } else if (this.typeOfReq === 'question') {
+      return questionReqHandler();
     }
   }
 }
