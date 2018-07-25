@@ -23,7 +23,7 @@ class DetectTypeOfRequest {
       [/@bot Save/, 'note'],
       [/@bot Show/, 'note'],
       [/@bot show quote/, 'quote'],
-      [/^@bot +.+\? *[!@#$%^&₴*?()_+]+$/, 'question'],
+      [/^@bot +.+\? *[!@#₴$%^&0*?()_+]+$/, 'question'],
       [/@bot /, 'random'],
     ];
   }
