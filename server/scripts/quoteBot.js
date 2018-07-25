@@ -1,8 +1,8 @@
 module.exports = function quoteBotRes() {
-  return freeAdvice[randomNumber()]
+  return quotes[randomNumber()]
 };
 
-freeAdvice = [
+quotes = [
   '"People who masturbate with the door unlocked are braver than the US marines." - Donald J. Trump',
   `"You miss 100% of the shots you don't take." - Michael Scott`,
   'Than people talking about u behind your back, then just fart.',

@@ -1,8 +1,8 @@
 module.exports = function questionBotRes() {
-  return freeAdvice[randomNumber()]
+  return freeAdvise[randomNumber()];
 };
 
-freeAdvice = [
+freeAdvise = [
   'Make her pussy wet, not her eyes',
   `Always salt your pasta while boiling`,
   'Break her bed, not her heart',

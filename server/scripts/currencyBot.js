@@ -31,6 +31,8 @@ function bankomat(amount, currencyArr, currency_A, currency_B) {
     result = amount * EURUSD;
   } else if (currency_A === 'dollar' && currency_B === 'euro') {
     result = amount / EURUSD;
+  } else if (currency_A === currency_B) {
+    result = amount;
   }
   return `${Math.round(result * 100) / 100} ${currency_B}`;
 }

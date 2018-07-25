@@ -1,8 +1,8 @@
 module.exports = function randomBotRes() {
-  return freeAdvice[randomNumber()]
+  return randomAnswer[randomNumber()]
 };
 
-freeAdvice = [
+randomAnswer = [
   'R u on acid?',
   `What was the question?`,
   'Who is cute? U r :)',
