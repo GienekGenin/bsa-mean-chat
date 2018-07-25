@@ -9,7 +9,7 @@ randomAnswer = [
   `Sounds good, doesn't work`,
   'Wedding are basically funerals with cake',
   'Jesus dude, what have u smoked?',
-  'This is some good shit there u smoking',
+  'There is some good shit u smoking there',
   '???'
 ];
 

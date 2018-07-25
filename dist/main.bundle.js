@@ -170,7 +170,7 @@ var AppModule = (function () {
 /***/ "../../../../../src/app/chat/chat.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-header>\r\n    <mat-card-title><h1>Simple chat with bot</h1></mat-card-title>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <div id=\"messages\">\r\n      <ul>\r\n        <li *ngFor=\"let message of messages\">{{message}}</li>\r\n      </ul>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"New message\" type=\"text\" #msg (keyup)=\"sendMsg(msg, $event)\">\r\n    </mat-form-field>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\r\n  <mat-card-header>\r\n    <mat-card-title><h1>Simple chat with bot</h1></mat-card-title>\r\n    <mat-card-subtitle><h2>cls - to clear chat</h2></mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <div id=\"messages\">\r\n      <ul>\r\n        <li *ngFor=\"let message of messages\">{{message}}</li>\r\n      </ul>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"New message\" type=\"text\" #msg (keyup)=\"sendMsg(msg, $event)\">\r\n    </mat-form-field>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 

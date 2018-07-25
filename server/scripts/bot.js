@@ -63,7 +63,7 @@ class BotResponse {
 class handler {
   check(msg) {
     let isReq = new DetectBot().check(msg);
-    let typeOfReq = isReq ? new DetectTypeOfRequest().check(msg) : 'random';
+    let typeOfReq = isReq ? new DetectTypeOfRequest().check(msg) : false;
     return new BotResponse(typeOfReq).answerOn(msg);
   }
 }
