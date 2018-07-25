@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const mongojs = require('mongojs');
-// const db = mongojs('mongodb://Gennadii:1q2w120195@ds135061.mlab.com:35061/bsa-js', ['messages']);
 const handler = require('./scripts/bot');
 
 const app = express();
@@ -12,7 +10,7 @@ let staticPath = path.normalize(__dirname + '/../dist');
 app.use(express.static(staticPath));
 
 // Catch all other routes and return the index file
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile(staticPath + '/index.html');
 });
 
@@ -53,6 +51,13 @@ io.on('connection', (socket) => {
 
   socket.emit('new_connection', {
     messages
+  });
+
+  socket.on('clear', () => {
+    messages = [];
+    io.emit('clear', {
+      msg: 'clear'
+    });
   });
 
   socket.on('new_message', (data) => {

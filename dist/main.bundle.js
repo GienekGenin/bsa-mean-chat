@@ -235,8 +235,17 @@ var ChatComponent = (function () {
         this._socketService.on('new_message', function (_data) {
             _this.messages.push(_data.msg);
         });
+        this._socketService.on('clear', function (_data) {
+            _this.messages = [];
+        });
     };
     ChatComponent.prototype.sendMsg = function (msgInput, event) {
+        if (msgInput.value === 'cls') {
+            this._socketService.emit('clear', {
+                msg: 'clear'
+            });
+            msgInput.value = '';
+        }
         if (msgInput.value !== '' && event.key === 'Enter') {
             this._socketService.emit('new_message', {
                 msg: msgInput.value

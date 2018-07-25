@@ -32,9 +32,18 @@ export class ChatComponent implements OnInit {
     this._socketService.on('new_message', (_data: any) => {
       this.messages.push(_data.msg);
     });
+    this._socketService.on('clear', (_data: any) => {
+      this.messages = [];
+    });
   }
 
   sendMsg(msgInput, event) {
+    if (msgInput.value === 'cls') {
+      this._socketService.emit('clear', {
+        msg: 'clear'
+      });
+      msgInput.value = '';
+    }
     if (msgInput.value !== '' && event.key === 'Enter') {
       this._socketService.emit('new_message', {
         msg: msgInput.value
