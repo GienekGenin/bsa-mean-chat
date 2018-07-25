@@ -1,5 +1,6 @@
 const weatherReqHandler = require('./weatherBot');
 const currencyReqHandler = require('./currencyBot');
+const noteReqHandler = require('./noteBot');
 
 class DetectBot {
   constructor() {
@@ -45,14 +46,12 @@ class BotResponse {
     } else if (this.typeOfReq === 'currency') {
       return currencyReqHandler(msg);
     } else if (this.typeOfReq === 'note') {
-      // return noteReqHandler(msg);
+      return noteReqHandler(msg);
     } else if (this.typeOfReq === 'quote') {
-
+      // return quoteReqHandler(msg);
     }
   }
 }
-
-
 
 class handler {
   check(msg) {
@@ -63,52 +62,3 @@ class handler {
 }
 
 module.exports = handler;
-
-/*
-
-function parseBot(msg) {
-  if (/@bot What is the weather/.handler(msg)) {
-    weatherReqHandler(msg);
-  }
-  if (/@bot Convert/.handler(msg)) {
-    convertCurrency(msg);
-  }
-  if (/@bot Save/.handler(msg) || /@bot Show/.handler(msg)) {
-    noteHandler(msg);
-  }
-  if (/@bot show quote/.handler(msg)) {
-    showQuote(msg);
-  }
-}
-
-
-
-function convertCurrency() {
-  console.log('convertCurrency');
-}
-
-function noteHandler() {
-  console.log('noteHandler');
-}
-
-function showQuote() {
-  console.log('showQuote');
-}
-
-
-
-class handleRequest {
-  constructor(){
-    this.botReqPatterns = [/@bot What is the weather/, /@bot Convert/, /@bot Save/, /@bot Show/, /@bot show quote/];
-  }
-
-  check(msg) {
-    for (let i = 0; i < this.botReqPatterns.length; i++) {
-      if(this.botReqPatterns[i].handler(msg)){
-        return this.botReqPatterns[i];
-      }
-    }
-  }
-}
-
- */
