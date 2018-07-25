@@ -60,8 +60,10 @@ io.on('connection', (socket) => {
     io.emit('new_message', {
       msg: data.msg
     });
+    let botRes = new handler().check(data.msg);
+    messages.push(botRes);
     io.emit('new_message', {
-      msg: new handler().check(data.msg)
+      msg: botRes
     });
   });
 });
