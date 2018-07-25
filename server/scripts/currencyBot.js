@@ -1,3 +1,5 @@
+const randomReqHandler = require('./randomBot');
+
 module.exports = function currencyReqHandler(msg) {
   let currency = ['dollar', 'euro', 'hryvnia'];
   let catchAmount = new RegExp(/[0-9]+/);
@@ -13,6 +15,7 @@ module.exports = function currencyReqHandler(msg) {
       }
     }
   }
+  return randomReqHandler();
 };
 
 function bankomat(amount, currencyArr, currency_A, currency_B) {

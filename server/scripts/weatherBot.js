@@ -1,3 +1,5 @@
+const randomReqHandler = require('./randomBot');
+
 module.exports = function weatherReqHandler(msg) {
   let days = ['today', 'tomorrow', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   let cities = ['Lviv', 'Kyiv', 'Kharkiv', 'Odessa', 'Dnipro'];
@@ -24,4 +26,5 @@ module.exports = function weatherReqHandler(msg) {
       }
     }
   }
+  return randomReqHandler();
 };

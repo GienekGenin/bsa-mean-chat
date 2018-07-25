@@ -22,6 +22,7 @@ class DetectTypeOfRequest {
       [/@bot Convert/, 'currency'],
       [/@bot Save/, 'note'],
       [/@bot Show/, 'note'],
+      [/@bot Delete/, 'note'],
       [/@bot show quote/, 'quote'],
       [/^@bot +.+\? *[!@#₴$%^&0*?()_+]+$/, 'question'],
       [/@bot /, 'random'],
@@ -62,7 +63,7 @@ class BotResponse {
 class handler {
   check(msg) {
     let isReq = new DetectBot().check(msg);
-    let typeOfReq = isReq ? new DetectTypeOfRequest().check(msg) : false;
+    let typeOfReq = isReq ? new DetectTypeOfRequest().check(msg) : 'random';
     return new BotResponse(typeOfReq).answerOn(msg);
   }
 }

@@ -5,6 +5,8 @@ import {ChatComponent} from './chat/chat.component';
 import {SocketService} from './services/socket/socket.service';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from './modules/material.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import {HttpModule} from '@angular/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [SocketService],
   bootstrap: [AppComponent]
