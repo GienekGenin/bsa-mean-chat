@@ -1,6 +1,7 @@
 const weatherReqHandler = require('./weatherBot');
 const currencyReqHandler = require('./currencyBot');
 const noteReqHandler = require('./noteBot');
+const quoteReqHandler = require('./quoteBot');
 
 class DetectBot {
   constructor() {
@@ -48,7 +49,7 @@ class BotResponse {
     } else if (this.typeOfReq === 'note') {
       return noteReqHandler(msg);
     } else if (this.typeOfReq === 'quote') {
-      // return quoteReqHandler(msg);
+      return quoteReqHandler();
     }
   }
 }
