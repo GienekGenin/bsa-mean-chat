@@ -43,6 +43,7 @@ function showNote(msg) {
       return `${notes[i].title}: ${notes[i].body}`
     }
   }
+  return 'Note doesn\'t exit';
 }
 
 function showNoteList() {
@@ -67,7 +68,8 @@ function deleteNote(msg) {
   for (let i = 0; i < notes.length; i++) {
     if (notes[i].title === title) {
       notes.splice(i, 1);
+      return 'Note was deleted';
     }
   }
-  return 'Note was deleted';
+  return 'Note doesn\'t exit';
 }
