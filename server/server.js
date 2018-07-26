@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const handler = require('./scripts/bot');
+const handler = require('./scripts/bot/bot');
 
 const app = express();
 
@@ -65,16 +65,20 @@ io.on('connection', (socket) => {
     io.emit('new_message', {
       msg: data.msg
     });
-    botCheck(data.msg);
+    catchBotReq(data.msg);
   });
 });
 
-function botCheck(msg) {
-  let botRes = new handler().check(msg);
-  if(botRes){
-    messages.push(botRes);
-    io.emit('new_message', {
-      msg: botRes
-    });
+
+let catchBotReq = new Proxy(function () {
+}, {
+  apply: function (target, thisArg, argument) {
+    if (/@bot /.test(argument[0])) {
+      let res = new handler().check(argument[0]);
+      messages.push(res);
+      return io.emit('new_message', {
+        msg: res
+      });
+    } else return false;
   }
-}
+});

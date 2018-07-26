@@ -33,9 +33,11 @@ if(false) {
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
 // imports
 exports.i(__webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"sourceMap\":false}!../../../material/prebuilt-themes/indigo-pink.css"), "");
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Condensed);", ""]);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Roboto);", ""]);
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\na, li, span, button, td, .mat-list-item-content {\n  font-family: 'Encode Sans Condensed', sans-serif !important;\n  font-size: 18px; }\n\nh1, h2, h3, h4, h5, h6, .mat-card-title, .mat-card-subtitle, .mat-tab-label {\n  font-family: 'Roboto', sans-serif !important; }\n", ""]);
 
 // exports
 

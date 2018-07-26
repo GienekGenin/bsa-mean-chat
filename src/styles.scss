@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+a, li, span, button, td, .mat-list-item-content {
+  font-family: 'Encode Sans Condensed', sans-serif !important;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6, .mat-card-title, .mat-card-subtitle, .mat-tab-label {
+  font-family: 'Roboto', sans-serif !important;
+}

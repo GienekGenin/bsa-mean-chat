@@ -17,42 +17,6 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
-/***/ "../../../../../src/app/app-routing.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat_chat_component__ = __webpack_require__("../../../../../src/app/chat/chat.component.ts");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var routes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__chat_chat_component__["a" /* ChatComponent */] },
-];
-var AppRoutingModule = (function () {
-    function AppRoutingModule() {
-    }
-    AppRoutingModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
-        })
-    ], AppRoutingModule);
-    return AppRoutingModule;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
@@ -122,7 +86,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modules_material_module__ = __webpack_require__("../../../../../src/app/modules/material.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modules_app_routing_module__ = __webpack_require__("../../../../../src/app/modules/app-routing.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -154,7 +118,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_8__modules_material_module__["a" /* MaterialModule */],
-                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */]
+                __WEBPACK_IMPORTED_MODULE_9__modules_app_routing_module__["a" /* AppRoutingModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_4__services_socket_socket_service__["a" /* SocketService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -170,7 +134,7 @@ var AppModule = (function () {
 /***/ "../../../../../src/app/chat/chat.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\r\n  <mat-card-header>\r\n    <mat-card-title><h1>Simple chat with bot</h1></mat-card-title>\r\n    <mat-card-subtitle><h2>cls - to clear chat</h2></mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <div id=\"messages\">\r\n      <ul>\r\n        <li *ngFor=\"let message of messages\">{{message}}</li>\r\n      </ul>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"New message\" type=\"text\" #msg (keyup)=\"sendMsg(msg, $event)\">\r\n    </mat-form-field>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
+module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Welcome\"></mat-tab>\r\n  <mat-tab label=\"Weather\">\r\n    <mat-list role=\"list\">\r\n      <mat-list-item role=\"listitem\">@bot What is the weather today in Lviv?</mat-list-item>\r\n      <mat-list-item role=\"listitem\">@bot What is the weather on Monday in Kyiv?</mat-list-item>\r\n    </mat-list>\r\n  </mat-tab>\r\n  <mat-tab label=\"Currency\">\r\n    <mat-list role=\"list\">\r\n      <mat-list-item role=\"listitem\">@bot Convert 20 dollar to euro</mat-list-item>\r\n    </mat-list>\r\n  </mat-tab>\r\n  <mat-tab label=\"Notes\">\r\n    <mat-list role=\"list\">\r\n      <mat-list-item role=\"listitem\">@bot Save note title: “Pattern ‘Proxy’” body: “JavaScript”</mat-list-item>\r\n      <mat-list-item role=\"listitem\">@bot Show note “Pattern ‘Proxy’”</mat-list-item>\r\n      <mat-list-item role=\"listitem\">@bot Show note list</mat-list-item>\r\n      <mat-list-item role=\"listitem\">@bot Delete note: “Pattern ‘Proxy’”</mat-list-item>\r\n    </mat-list>\r\n  </mat-tab>\r\n  <mat-tab label=\"Advises\">\r\n    <mat-list role=\"list\">\r\n      <mat-list-item role=\"listitem\">@bot “Що мені робити з гемороєм? #@)₴?$0</mat-list-item>\r\n    </mat-list>\r\n  </mat-tab>\r\n  <mat-tab label=\"Quotes\">\r\n    <mat-list role=\"list\">\r\n      <mat-list-item role=\"listitem\">@bot show quote</mat-list-item>\r\n    </mat-list>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n<mat-card>\r\n  <mat-card-header>\r\n    <mat-card-title><h1>Simple chat with bot</h1></mat-card-title>\r\n    <mat-card-subtitle><h2>cls - to clear chat</h2></mat-card-subtitle>\r\n  </mat-card-header>\r\n  <mat-card-content>\r\n    <div id=\"messages\">\r\n      <ul>\r\n        <li *ngFor=\"let message of messages\">{{message}}</li>\r\n      </ul>\r\n    </div>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n    <mat-form-field>\r\n      <input matInput placeholder=\"New message\" type=\"text\" #msg (keyup)=\"sendMsg(msg, $event)\">\r\n    </mat-form-field>\r\n  </mat-card-actions>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -268,6 +232,42 @@ var ChatComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/modules/app-routing.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat_chat_component__ = __webpack_require__("../../../../../src/app/chat/chat.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var routes = [
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__chat_chat_component__["a" /* ChatComponent */] },
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/modules/material.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -288,8 +288,22 @@ var MaterialModule = (function () {
     }
     MaterialModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatFormFieldModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatCardModule */]],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatFormFieldModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatInputModule */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatCardModule */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatFormFieldModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatListModule */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["c" /* MatFormFieldModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["b" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatListModule */]
+            ],
         })
     ], MaterialModule);
     return MaterialModule;
