@@ -18,7 +18,14 @@ class DetectTypeOfRequest {
       [/@bot /, 'random'],
     ];
   }
-
+  /**
+   * Tests every pattern on incoming message.
+   *
+   * @param {string} msg sent by user.
+   *
+   * @returns {string} type of request.
+   */
+  // tests every pattern on incoming msg and returns type of request
   check(msg) {
     for (let i = 0; i < this.botReqPatterns.length; i++) {
       if (this.botReqPatterns[i][0].test(msg)) {
@@ -28,11 +35,19 @@ class DetectTypeOfRequest {
   }
 }
 
+// facade pattern
 class BotResponse {
   constructor(typeOfReq) {
     this.typeOfReq = typeOfReq;
   }
 
+  /**
+   * Calls function depends on type of incoming request.
+   *
+   * @param {string} msg from user.
+   *
+   * @returns {string} message from bot.
+   */
   answerOn(msg) {
     if (this.typeOfReq === 'question') {
       return questionReqHandler();
@@ -50,6 +65,7 @@ class BotResponse {
   }
 }
 
+// facade pattern
 class handler {
   check(msg) {
     let typeOfReq = new DetectTypeOfRequest().check(msg);

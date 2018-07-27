@@ -1,5 +1,13 @@
 const randomReqHandler = require('./randomBot');
 
+// facade pattern
+/**
+ * Note request handler.
+ *
+ * @param {string} msg - users message.
+ *
+ * @returns {string} response with string result depended on type of request
+ */
 module.exports = function noteBotRes(msg) {
   let savePatt = /@bot Save note title:/;
   let showNotePatt = /@bot Show note /;
@@ -19,6 +27,13 @@ module.exports = function noteBotRes(msg) {
 
 notes = [];
 
+/**
+ * Note save request handler.
+ *
+ * @param {string} msg - users message.
+ *
+ * @returns {string} response with string: Saved as title: 'note title', body: 'note body'
+ */
 function saveNote(msg) {
   let title, body;
   let pattTitle = /(title: )(.+)( body:)/;
@@ -32,6 +47,14 @@ function saveNote(msg) {
   return `Saved as title: ${title}, body: ${body}`;
 }
 
+/**
+ * Note show request handler.
+ *
+ * @param {string} msg - users message.
+ *
+ * @returns {string} responses with note if there is one,
+ * or with string: 'Note doesn't exit' if there isn't
+ */
 function showNote(msg) {
   let patt = /(note )(.+)/;
   if (patt.exec(msg) === null) {
@@ -46,6 +69,11 @@ function showNote(msg) {
   return 'Note doesn\'t exit';
 }
 
+/**
+ * Note showNoteList request handler.
+ *
+ * @returns {string} responses with list of exiting notes, or with string: 'Note list is empty'
+ */
 function showNoteList() {
   let noteList = '';
   for (let i = 0; i < notes.length; i++) {
@@ -59,6 +87,14 @@ function showNoteList() {
   return noteList;
 }
 
+/**
+ * Note delete request handler.
+ *
+ * @param {string} msg - users message.
+ *
+ * @returns {string} responses with successful result,
+ * or with string: "Note doesn't exit" if there is no such note
+ */
 function deleteNote(msg) {
   let patt = /(@bot Delete note: )(.+)/;
   if (patt.exec(msg) === null) {

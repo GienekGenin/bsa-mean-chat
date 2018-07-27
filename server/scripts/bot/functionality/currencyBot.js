@@ -1,16 +1,23 @@
 const randomReqHandler = require('./randomBot');
 
+/**
+ * Checks pattern of message, looks for currency types and amount.
+ *
+ * @param {string} msg from user.
+ *
+ * @returns {string} response with converted value.
+ */
 module.exports = function currencyReqHandler(msg) {
   let currency = ['dollar', 'euro', 'hryvnia'];
   let catchAmount = new RegExp(/[0-9]+/);
-  let amount = catchAmount.exec(msg);
+  let amount = +catchAmount.exec(msg);
   for (let i = 0; i < currency.length; i++) {
     let patt = new RegExp(`@bot Convert ${amount} ${currency[i]}`);
     if (patt.test(msg)) {
       for (let c = 0; c < currency.length; c++) {
         let patt = new RegExp(`@bot Convert ${amount} ${currency[i]} to ${currency[c]}`);
         if (patt.test(msg)) {
-          return(bankomat(amount, currency, currency[i], currency[c]));
+          return(bankomat(amount, currency[i], currency[c]));
         }
       }
     }
@@ -18,7 +25,16 @@ module.exports = function currencyReqHandler(msg) {
   return randomReqHandler();
 };
 
-function bankomat(amount, currencyArr, currency_A, currency_B) {
+/**
+ * Convert one currency into another.
+ *
+ * @param {number} amount of money.
+ * @param {string} currency_A - type of currency.
+ * @param {string} currency_B - type of currency.
+ *
+ * @returns {string} response with converted value.
+ */
+function bankomat(amount, currency_A, currency_B) {
   let UAHUSD = 0.038;
   let EURUSD = 1.17;
   let result;

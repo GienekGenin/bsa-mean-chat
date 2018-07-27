@@ -53,6 +53,7 @@ io.on('connection', (socket) => {
     messages
   });
 
+  // clear chat
   socket.on('clear', () => {
     messages = [];
     io.emit('clear', {
@@ -69,7 +70,14 @@ io.on('connection', (socket) => {
   });
 });
 
-
+// Proxy (ES2015)
+/**
+ * Checks if msg contains @bot request
+ *
+ * @param {string} message sent by user.
+ *
+ * @returns {string} bot response if this is req for bot, false if it is not.
+ */
 let catchBotReq = new Proxy(function () {
 }, {
   apply: function (target, thisArg, argument) {

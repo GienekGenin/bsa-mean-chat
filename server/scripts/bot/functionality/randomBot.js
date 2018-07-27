@@ -1,3 +1,8 @@
+/**
+ * Unknown request handler.
+ *
+ * @returns {string} response with random phrase.
+ */
 module.exports = function randomBotRes() {
   let randomAnswer = [
     'R u on acid?',
@@ -11,9 +16,8 @@ module.exports = function randomBotRes() {
     '???',
     'Eat your foot'
   ];
+  function randomNumber(end) {
+    return Math.floor(Math.random() * end);
+  }
   return randomAnswer[randomNumber(randomAnswer.length)]
 };
-
-function randomNumber(end) {
-  return Math.floor(Math.random() * end);
-}
