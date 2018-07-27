@@ -25,7 +25,6 @@ class DetectTypeOfRequest {
    *
    * @returns {string} type of request.
    */
-  // tests every pattern on incoming msg and returns type of request
   check(msg) {
     for (let i = 0; i < this.botReqPatterns.length; i++) {
       if (this.botReqPatterns[i][0].test(msg)) {
